@@ -9,27 +9,24 @@
       <ul>
         {%- for item in cart.items -%}
           <li class="flex items-center justify-between gap-4 mb-5 last:mb-0" data-line-item-key="{{ item.key }}">
-            
-            <div class="flex-grow flex items-center gap-4">
-              <div class="item-image flex-shrink-0">
-                <a href="{{ item.url }}">
-                  <img src="{{ item.image | image_url: width: 160, height: 160, crop: 'center' }}" alt="{{ item.title | escape }}" class="w-16 h-16 object-cover rounded">
-                </a>
+            <a href="{{ item.url }}" class="flex-grow flex items-center gap-4 group">
+              <div class="flex-shrink-0">
+                <img src="{{ item.image | image_url: width: 160, height: 160, crop: 'center' }}" alt="" class="w-16 h-16 object-cover rounded" role="presentation">
               </div>
-              <div class="item-info flex flex-col justify-center">
-                <a href="{{ item.url }}" class="item-title font-semibold text-brand-text-sub hover:text-brand-primary hover:underline transition-colors block">{{ item.product.title }}</a>
-                
+              <div class="flex flex-col justify-center">
+                <p class="item-title font-semibold text-brand-text-sub group-hover:text-brand-primary group-hover:underline transition-colors block">{{ item.product.title }}</p>
+
                 {%- unless item.variant.title contains 'Default' -%}
                   <p class="item-variant text-sm text-brand-text-sub cart-item-meta {% if item.variant.title != blank %}is-visible{% endif %}">
                     {{ item.variant.title }}
                   </p>
                 {%- endunless -%}
-                
+
                 <p class="item-unit-price text-sm text-gray-500 cart-item-meta {% if item.quantity > 1 %}is-visible{% endif %}">
                   {{ item.variant.price | money_without_trailing_zeros }}
                 </p>
               </div>
-            </div>
+            </a>
             
             <div class="flex-shrink-0 flex items-center gap-4">
               <div class="item-actions">

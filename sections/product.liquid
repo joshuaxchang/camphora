@@ -40,7 +40,7 @@
                 class="w-full h-full object-cover"
                 width="{{ media.preview_image.width }}"
                 height="{{ media.preview_image.height }}"
-                alt="{{ media.alt | escape }}"
+                alt=""
               >
             </div>
           {%- endfor -%}
@@ -67,8 +67,9 @@
           {%- unless product.has_only_default_variant -%}
             <div class="mb-5">
             {%- for option in product.options_with_values -%}
-              <div class="mb-4 last:mb-0">
-                <div class="flex items-center gap-2 mt-2">
+              <fieldset class="mb-4 last:mb-0">
+                <legend class="sr-only">{{ option.name }}</legend>
+                <div class="flex items-center gap-2">
                   {%- for value in option.values -%}
                     <label>
                       <input type="radio" name="{{ option.name }}" value="{{ value }}" {% if option.selected_value == value %}checked{% endif %} class="sr-only peer">
@@ -78,7 +79,7 @@
                     </label>
                   {%- endfor -%}
                 </div>
-              </div>
+              </fieldset>
             {%- endfor -%}
             </div>
           {%- endunless -%}
