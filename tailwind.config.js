@@ -16,10 +16,9 @@ module.exports = {
         'brand-bg': '#F0F9FF',          // A clearer, light sky blue
         'brand-card': '#FFFFFF',          // Clean and simple
         'brand-text-main': '#4A4036',   // REPLACES 'brand-body' - dark brown from tree trunk
-        'brand-text-sub': '#6D5D4D',    // Your old 'brand-text', good for subheadings
-        'brand-primary': '#4C8562',       // Leaf green, great choice
-        'brand-primary-hover': '#3E6B50',
-        'brand-accent': '#c5ad98ff',      // Sunlit bark/earth
+        'brand-text-sub': '#5C4B3D',    // Your old 'brand-text', good for subheadings
+        'brand-primary': '#3A664B',       // Leaf green
+        'brand-accent': '#8F5B3A',      // Sunlit bark/earth
         'brand-accent-light': '#F0F3F5', // Neutral borders/dividers
         'brand-cta': '#F59E0B',          // NEW: Sunlight yellow for call to action
       },

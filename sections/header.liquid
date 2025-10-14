@@ -32,8 +32,11 @@
       </div>
 
       <div class="flex items-center justify-center w-12 mr-2 sm:mr-0">
-        <button type="button" id="open-cart-button" class="relative block w-6 h-6">
+        <button type="button" id="open-cart-button" class="relative block w-6 h-6" aria-label="Open cart">
           {% render 'icon-cart' %}
+          <span class="sr-only" id="cart-live-region" aria-live="polite">
+            {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}
+          </span>
           <span id="cart-item-count" class="absolute -top-2 -right-3 bg-brand-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center {% if cart.item_count == 0 %}hidden{% endif %}">
             {{ cart.item_count }}
           </span>
@@ -173,4 +176,3 @@ document.addEventListener('DOMContentLoaded', () => {
   ]
 }
 {% endschema %}
-
